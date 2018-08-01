@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Review</title>
+	<link rel="stylesheet" type="text/css" href="stye5.css">
+</head>
+<body>
+	<nav id="menu">
+     <ul>
+        <div id="heading">
+            <a href="#">Travel Sites</a></li>
+        </div>
+        <li><a href="review.html">Review</a></li>
+        <li><a href="more.html">More</a></li>
+      
+        
+    
+       
+   
+        <li><a href="#">Multimedia</a>
+            <ul>
+                <li><a href="image.html">Images</a></li>
+                <li><a href="video.html">Video</a></li>
+            </ul>
+        </li>
+        <li><a href="uts.html">Home</a></li>
+    </ul>
+   
+
+</nav>
+
+ <div class="container">
+    <h1>Send us a Review for Improvement</h1>
+    <div class="content">
+    <div>
+    <label>Nama:</label>
+    <input type="text" name="nama" id="nama">
+  </div>
+  <div>
+    <label>Nilai:</label>
+    <input type="number" name="nilai" id="nilai">
+  </div>
+    <div>
+    <button onclick="simpan()">Simpan</button>
+  </div>
+  <table id="daftarNilai" border="1">
+    <tr>
+      <th>Name</th>
+      <th>Score</th>
+      <th>Mark</th>
+    </tr>
+  </table>
+</div>
+</div>
+<script type="text/javascript">
+    class Nilai {
+      constructor(nama, nilai) {
+        this.nama = nama
+        this.nilai = nilai
+      }
+
+      get nilaiHuruf() {
+        if (this.nilai >= 80) {
+          return "Very Good"
+        } else if (this.nilai >= 70) {
+          return "Good"
+        } else if (this.nilai >= 60) {
+          return "Average"
+        } else if (this.nilai >= 50) {
+          return "Need Improvement"
+        } else {
+          return "Bad"
+        }
+      }
+    }
+
+    function bacaDataDariInput() {
+      var inama = document.getElementById("nama")
+      var inilai = document.getElementById("nilai")
+      var nama = inama.value
+      var nilai = parseInt(inilai.value)
+      nilai = isNaN(nilai) ? 0 : nilai
+
+      return new Nilai(nama, nilai)
+    }
+
+    function buatKolomBaru(n) {
+      var kolom = document.createElement("td")
+      kolom.innerHTML = n
+      return kolom
+    }
+
+    function buatBarisBaru(n) {
+      var baris = document.createElement("tr")
+      baris.appendChild(buatKolomBaru(n.nama))
+      baris.appendChild(buatKolomBaru(n.nilai))
+      baris.appendChild(buatKolomBaru(n.nilaiHuruf))
+      return baris
+    }
+
+    function clearDanFokusInput() {
+      var inama = document.getElementById("nama")
+      var inilai = document.getElementById("nilai")
+      inama.value = ""
+      inilai.value = ""
+      icomment.value = ""
+      inama.focus()
+    }
+
+    function tambahkanBarisBaru(id, baris) {
+      document.querySelector(id).appendChild(baris)
+    }
+
+    function simpan() {
+      // baca data dari input
+      var n = bacaDataDariInput()
+      // bentuk element baru
+      var baris = buatBarisBaru(n)
+      // tambahkan element baru ke table
+      tambahkanBarisBaru('#daftarNilai', baris)
+      // clear dan focus input
+      clearDanFokusInput()
+    }
+  </script>
+</body>
+
+</html>

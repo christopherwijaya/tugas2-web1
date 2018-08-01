@@ -1,0 +1,41 @@
+@import url('https://font.googleapls.com/css?family=Raleway');
+@import url('https://font.googleapls.com/css?family=Osewald');
+
+*{
+	margin: 0;
+	padding: 0;
+}
+html , body {
+	height: 100%;
+}
+body {
+	background: url(./picture/cliff.jpg) no-repeat center center;
+	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	justify-content: center; 
+}
+.container{
+	width: 100%;
+	margin: 0px  auto;
+	text-align: center;
+}
+h1{
+	color: #ffffff;
+	font: 900 70px "Mr De Haviland", cursive;
+	text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+	margin-bottom: 26px;
+}
+.btn{
+	font-family: "Osewald",sans-serif;
+	border-radius: 9px; 
+	color:#03A681;
+	padding: 10px 20px;
+	border:solid #03A681 3px;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+.btn:hover{
+	color:#fff;
+	border: solid #fff 3px;
+}
